@@ -7,16 +7,17 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 
 const Home = () => {
-    const [book, setBook] = useState([]);
+    const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        console.log('fetching Books');
         setLoading(true)
         axios
-            .get('http:localhost:5555/books')
-            .then((responce) => {
-                console.log(response.data);
-                setBook(responce.data.data);
+            .get('http://localhost:5555/books')
+            .then((res) => {
+                console.log(res.data);
+                setBooks(res.data.data);
                 setLoading(false);
             })
             .catch((err) => {
