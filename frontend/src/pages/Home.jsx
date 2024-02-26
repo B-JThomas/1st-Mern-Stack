@@ -11,12 +11,10 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        console.log('fetching Books');
         setLoading(true)
         axios
             .get('http://localhost:5555/books')
             .then((res) => {
-                console.log(res.data);
                 setBooks(res.data.data);
                 setLoading(false);
             })
