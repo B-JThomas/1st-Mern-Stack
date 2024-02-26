@@ -9,13 +9,15 @@ const app = express();
 app.use(express.json());
 
 //Cors handling
-app.use(
-    cors({
-        origin: 'http://localhost:5555',
-        methods: ['GET', 'Post', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type']
-    })
-);
+app.use(cors());
+
+// app.use(
+//     cors({
+//         origin: 'http://localhost:5555',
+//         methods: ['GET', 'Post', 'PUT', 'DELETE'],
+//         allowedHeaders: ['Content-Type']
+//     })
+// );
 
 app.get('/', (req, res) => {
     console.log(req)
